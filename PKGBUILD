@@ -116,6 +116,7 @@ build() {
   )
   
   gn gen out/Release --script-executable=/usr/bin/python2 --args="${_flags[*]}"
+  sed -i -r "s/aarch64-linux-gnu-|arm-linux-gnueabihf-//g" out/Release/toolchain.ninja
   ninja -C out/Release pdfium
 
   # set pdfium version in pc file
